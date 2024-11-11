@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255 255 255;
+    --color-secondary: 71 85 105;
+    --color-accent: 59 130 246;
+    --color-background: 249 250 251;
+    --color-surface: 255 255 255;
+    --color-text: 15 23 42;
+    --color-text-secondary: 71 85 105;
+    --color-border: 226 232 240;
+    --color-highlight: 59 130 246;
+  }
+
+  :root[class~="dark"] {
+    --color-primary: 30 41 59;
+    --color-secondary: 148 163 184;
+    --color-accent: 59 130 246;
+    --color-background: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-text: 241 245 249;
+    --color-text-secondary: 148 163 184;
+    --color-border: 51 65 85;
+    --color-highlight: 96 165 250;
+  }
+
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    transition: font-size 0.2s ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-text transition-colors duration-200;
+  }
+
+  /* Base form elements */
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='date'],
+  input[type='datetime-local'],
+  input[type='month'],
+  input[type='week'],
+  input[type='time'],
+  input[type='search'],
+  input[type='color'],
+  select,
+  textarea {
+    @apply block w-full rounded-lg border-border bg-surface text-text;
+    @apply shadow-sm transition duration-150;
+    @apply focus:border-highlight focus:ring-2 focus:ring-highlight focus:ring-opacity-50;
+    min-height: 2.75rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* Range input styling */
+  input[type='range'] {
+    @apply appearance-none bg-transparent cursor-pointer;
+    height: 6px;
+    border-radius: 9999px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    @apply appearance-none bg-accent;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  input[type='range']::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+  }
+
+  input[type='range']::-webkit-slider-thumb:active {
+    transform: scale(0.9);
+  }
+
+  input[type='range']::-moz-range-thumb {
+    @apply appearance-none bg-accent;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  input[type='range']::-moz-range-thumb:hover {
+    transform: scale(1.1);
+  }
+
+  input[type='range']::-moz-range-thumb:active {
+    transform: scale(0.9);
+  }
+
+  /* Rest of the existing CSS remains the same */
+}
